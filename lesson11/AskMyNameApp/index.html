@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask my name APP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- We will write our app in this file later, NOW we wrote it in this html -->
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <!-- HTML -->
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Ask my name App</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <!-- Here we need to put the name we enter when we enter website -->
+                    <!-- Prv span vo nasiot document, ama poradi toa sto site komputerski nizi/lisit pocnuvaat od nula -->
+                    <a href="#" class="nav-link"><span>Your name</span></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <!-- Here we need to put the name we enter when we enter website -->
+            <h1 class="display-4"></h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+                to
+                featured content or information.</p>
+        </div>
+    </div>
+
+
+
+    <!-- HTML END -->
+
+    <script>
+
+        // WE USE FOR NOW THIS WAY TO PUT JAVASCRIPT TO OUR WEBPAGE
+
+        // Our javascript here ! 
+
+        // FEATURE description: (what we want to code?)
+        // Jas sakam koga ke otvoram ova strana, da me prasuava kako se vikam i toa ime da prikazuva vo browser vo menu i vo text na samata strana
+
+        // The app algorithm in comments
+
+        // we need to ask user his name
+
+        // we need to put somewhere the name ? where? ( in variable)
+        // we can create variable with javascript keyword "var"
+        // after we put the name from browser pop up
+        var username = prompt("enter your name")
+
+        // 1 ,2 ,3
+        // 0, 1, 2
+
+        // we take out <span> element from Browser DOM
+        // we take first <span> but because in javascript the list of elements numbers alsways start not from 1 but from 0 we take 0 item
+        // In human counting we usually start with One - 1,2,3,4
+        // In computers we usually start counting from zero - 0,1,2,3,4
+
+        var topMenuSpan = document.getElementsByTagName("span").item(0)
+        var heading = document.getElementsByTagName("h1").item(0)
+
+        // Additional questions we might have :
+
+        // WHAT IF we enter nothing ?
+        // WHAT IF we press cancel
+        // What IF we enter numbers ( can name be a number?? )
+
+        // to join string and variables in javascript we use plus sign "+" and "put" all text in our menu span element
+        topMenuSpan.innerText = "Hello " + username + "!"
+
+        // here we put value in our h1 element
+        heading.innerText = "Welcome to our app! " + username + "! We happy to see you!"
+    </script>
+</body>
+
+</html>

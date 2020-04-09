@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+
+</head>
+
+<body>
+    <h1>Variables</h1>
+    <h3>To see results open your Browser Dev Tools > Console</h3>
+
+    <script>
+
+        // VARIABLES can hold:
+
+        // UNDEFINED value
+        // New created empty variable is always has special Javascript type "undefined"
+        var newVariable;
+        console.log(newVariable)
+
+        //NUMBERS 
+        var userAge = 25;
+
+        //TEXT, or STRING (always in " ")
+        var firstName = "Joe";
+
+        //BOOLEAN
+        // Da ili ne, TRUE or FALSE
+
+        var married = true;
+
+        //NULL values
+
+        var someVar = null;
+
+        console.log("User age is: ")
+        console.log(userAge);
+        console.log("User first name: ")
+        console.log(firstName)
+        console.log("Is Married?: ")
+        console.log(married)
+        console.log("Variable is null")
+        console.log(someVar)
+
+        // valid but not recomended variables names
+        var _firstName = "firstname"
+        var $firstName = "firstname"
+        var firstname123 = "firstname"
+
+        //Not valid names, do not use 
+        // var 123name   
+        // var name/myname  
+        // var &firsname
+        // Internal Javascript words like function, object are not valid variables names too
+        // var function 
+        // var object 
+
+    </script>
+</body>
+
+</html>
