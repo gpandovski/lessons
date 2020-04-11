@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript basics</title>
+</head>
+
+<body>
+
+    <script>
+        // we define (create) 'undefined' variable
+        var myName;
+        // we actually assigne text "John" to this variable - variable mutation happen ( basically means variable has changed)
+        myName = "John";
+        // variable mutation again
+        myName = "John Doe";
+        // we assign value of myName to NEW variable myFullname - no mutation happened
+        var myFullname = myName;
+
+        var myNewFullname;
+        //Here is mutation again - myNewFullname variable mutated
+        myNewFullname = myName;
+
+        var sum = 3 + 6;
+        var substr = 10 - 5;
+        var div = 20 / 3
+        var mult = 8 * 9;
+
+
+        // OUTPUT of calculations
+        console.log(sum);
+        console.log(substr);
+        console.log(div);
+        console.log(mult);
+
+        var username = prompt("enter your name")
+
+        // 1 ,2 ,3
+        // 0, 1, 2
+        console.log(typeof username);
+        console.log(parseInt(username));
+
+        /*****************************
+        * Truthy and Falsy values and equality operators
+        */
+
+        // falsy values: undefined, null, 0, '', NaN
+        // truthy values: NOT falsy values
+
+        var height;
+
+        height = 23;
+
+        if (height || height === 0) {
+            console.log('Variable is defined');
+        } else {
+            console.log('Variable has NOT been defined');
+        }
+
+        // Equality operators
+        if (height === '23') {
+            console.log('The == operator does type coercion!');
+        }
+
+        /* The following demonstrates the rules of the logical NOT operator:*/
+        console.log(!undefined); // true
+        console.log(!null); // true
+        console.log(!20); //false
+        console.log(!0); //true
+        console.log(!NaN); //true
+        console.log(!{}); // false
+        console.log(!''); //true
+        console.log(!'OK'); //false
+        console.log(!false); //true
+        console.log(!true); //false
+    </script>
+
+</body>
+
+</html>
