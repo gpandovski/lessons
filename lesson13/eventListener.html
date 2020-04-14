@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask my name APP</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- HTML -->
+
+    <div class="container">
+        <div class="card" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">Click name form</h5>
+
+                <div class="row-fluid no-gutters">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Name </label>
+                            <input type="text" name="temp" id="name" class="form-control" />
+                        </div>
+                        <button type="button" class="btn btn-success" id="click-button">Click me</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HTML END -->
+    <script>
+        // document means complete webpage ( html document)
+        var clickButton = document.getElementsByTagName("button")[0];
+        var nameInput = document.getElementById("name");
+
+        // event Listener
+        clickButton.addEventListener("click", clickMe);
+
+        // event Handler function
+        function clickMe() {
+            var name = nameInput.value;
+
+            // if name is empty it will be false and will not execute code inside IF
+            if (name) {
+                console.log(name);
+            } else {
+                alert("Enter your name!")
+            }
+
+        }
+    </script>
+</body>
+
+</html>
