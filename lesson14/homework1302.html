@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework1302</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <span class="anchor" id="formUserEdit"></span>
+                    <hr class="my-5">
+
+                    <div class="card card-outline-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0">User Information</h3>
+                        </div>
+                        <div class="card-body">
+                            <form autocomplete="off" class="form" role="form">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="Jane">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="Bishop">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="email" value="email@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Company</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Website</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="url" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Time Zone</label>
+                                    <div class="col-lg-9">
+                                        <select class="form-control" id="user_time_zone" size="0">
+                                            <option value="Hawaii">
+                                                (GMT-10:00) Hawaii
+                                            </option>
+                                            <option value="Alaska">
+                                                (GMT-09:00) Alaska
+                                            </option>
+                                            <option value="Pacific Time (US &amp; Canada)">
+                                                (GMT-08:00) Pacific Time (US &amp; Canada)
+                                            </option>
+                                            <option value="Arizona">
+                                                (GMT-07:00) Arizona
+                                            </option>
+                                            <option value="Mountain Time (US &amp; Canada)">
+                                                (GMT-07:00) Mountain Time (US &amp; Canada)
+                                            </option>
+                                            <option selected="selected" value="Central Time (US &amp; Canada)">
+                                                (GMT-06:00) Central Time (US &amp; Canada)
+                                            </option>
+                                            <option value="Eastern Time (US &amp; Canada)">
+                                                (GMT-05:00) Eastern Time (US &amp; Canada)
+                                            </option>
+                                            <option value="Indiana (East)">
+                                                (GMT-05:00) Indiana (East)
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="janeuser">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="password" value="11111122333"
+                                            style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                                        <small class="form-text text-muted" id="passwordHelpBlock">Your password must be
+                                            8-20 characters long, contain letters and numbers, and must not contain
+                                            spaces, special characters, or emoji.</small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Confirm</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="password" value="11111122333"
+                                            style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACIUlEQVQ4EX2TOYhTURSG87IMihDsjGghBhFBmHFDHLWwSqcikk4RRKJgk0KL7C8bMpWpZtIqNkEUl1ZCgs0wOo0SxiLMDApWlgOPrH7/5b2QkYwX7jvn/uc//zl3edZ4PPbNGvF4fC4ajR5VrNvt/mo0Gr1ZPOtfgWw2e9Lv9+chX7cs64CS4Oxg3o9GI7tUKv0Q5o1dAiTfCgQCLwnOkfQOu+oSLyJ2A783HA7vIPLGxX0TgVwud4HKn0nc7Pf7N6vV6oZHkkX8FPG3uMfgXC0Wi2vCg/poUKGGcagQI3k7k8mcp5slcGswGDwpl8tfwGJg3xB6Dvey8vz6oH4C3iXcFYjbwiDeo1KafafkC3NjK7iL5ESFGQEUF7Sg+ifZdDp9GnMF/KGmfBdT2HCwZ7TwtrBPC7rQaav6Iv48rqZwg+F+p8hOMBj0IbxfMdMBrW5pAVGV/ztINByENkU0t5BIJEKRSOQ3Aj+Z57iFs1R5NK3EQS6HQqF1zmQdzpFWq3W42WwOTAf1er1PF2USFlC+qxMvFAr3HcexWX+QX6lUvsKpkTyPSEXJkw6MQ4S38Ljdbi8rmM/nY+CvgNcQqdH6U/xrYK9t244jZv6ByUOSiDdIfgBZ12U6dHEHu9TpdIr8F0OP692CtzaW/a6y3y0Wx5kbFHvGuXzkgf0xhKnPzA4UTyaTB8Ph8AvcHi3fnsrZ7Wore02YViqVOrRXXPhfqP8j6MYlawoAAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <button class="btn btn-secondary" type="reset" value=""> Cancel</button>
+                                        <button class="btn btn-primary" id="printArray" type="button">Print to
+                                            console</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var clickButton = document.getElementById('printArray');
+
+            var select = document.getElementById('user_time_zone'); // element (ne array)
+
+
+            // vraka array na site input elementi
+            var inputs = document.getElementsByTagName('input');
+
+            clickButton.addEventListener("click", clickMe);
+
+            function clickMe() {
+
+                console.log(inputs);
+                // var elements = new Array();
+
+                // for (var i = 0; i < inputs.length; i++) {
+                //     //  console.log(inputs[i].value);
+                //     elements.push(inputs[i].value);
+                // }
+                // var elements = [
+                //     inputs[0].value,
+                //     inputs[1].value,
+                //     inputs[2].value,
+                //     inputs[3].value,
+                //     inputs[4].value,
+                //     inputs[5].value,
+                //     inputs[6].value,
+                //     inputs[7].value,
+                //     select.value
+                // ];
+                // if (condition) {
+
+                // }
+                // console.log(elements);
+                // console.log(inputs[5]); // html 
+                // console.dir(inputs[0]); // DOM object
+            }
+        </script>
+</body>
+
+</html>

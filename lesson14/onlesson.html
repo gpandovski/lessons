@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Lesson examplese</title>
+</head>
+
+<body>
+    <script>
+        //object literal - the way of defining objects
+        var john = {
+            firstName: "John",
+            lastName: "Smith",
+            birthYear: "1990",
+            famility: ['Jane', 'Mark', 'Bob', 'Emily'],
+            job: "teacher",
+            isMarried: false
+        };
+        console.log(john);
+        console.log(john.firstName);
+        console.log(john['firstName']);
+        var y = 'birthYear';
+        console.log(john[y]);
+        //mutations
+        john.job = 'designer';
+        john['isMarried'] = true;
+        console.log(john);
+
+        //new Object syntax
+        var jane = new Object();
+        //arrays 
+        var myArr = new Array();
+
+        jane.firstName = 'Jane';
+        jane.birthYear = 1969;
+        jane['lastname'] = 'Smith';
+        console.log(jane);
+
+
+        //Deleting properties
+        //
+        // You can remove a non-inherited property by using the delete operator. The following code shows how to remove a property.
+
+        // Creates a new object, myobj, with two properties, a and b.
+        var myobj = new Object;
+        myobj.a = 5;
+        myobj.b = 12;
+
+        // Removes the a property, leaving myobj with only the b property.
+        delete myobj.a;
+        console.log('a' in myobj); // output: "false"    
+        console.log(myobj.a); // output: "undefined"    
+
+        // Comparing objects
+        // Two variables, two distinct objects with the same properties
+        var fruit = { name: 'apple' };
+        var fruitbear = { name: 'apple' };
+
+        fruit == fruitbear; // return false
+        fruit === fruitbear; // return false
+        console.log(fruit === fruitbear);
+        // Two variables, a single object
+        var fruit = { name: 'apple' };
+        var fruitbear = fruit;  // Assign fruit object reference to fruitbear
+
+        // Here fruit and fruitbear are pointing to same object
+        fruit == fruitbear; // return true
+        fruit === fruitbear; // return true
+
+        fruit.name = 'grape';
+        console.log(fruitbear); // output: { name: "grape" }, instead of { name: "apple" }
+
+        var glen = {
+            firstName: 'John',
+            lastName: 'Smith',
+            birthYear: 1980,
+            family: ['Jane', 'Mark', 'Bob', 'Emily'],
+            job: 'teacher',
+            isMarried: false,
+            calcAge: function () {
+                return 2020 - john.birthYear;
+            }
+        };
+
+        var john = {
+            firstName: 'John',
+            lastName: 'Smith',
+            birthYear: 1992,
+            family: ['Jane', 'Mark', 'Bob', 'Emily'],
+            job: 'teacher',
+            isMarried: false,
+            calcAge: function () {
+                console.log(this);
+                // return 2020 - glen.birthYear; // valid
+                // return 2020 - john.birthYear; // valid but not quite correct and widely used
+                // return 2020 - this.birthYear; // valid and correct !
+            }
+        };
+
+        console.log(john.calcAge());
+
+        // var age = john.calcAge();
+        // john.age = age;
+
+        /*
+        var john = {
+            firstName: 'John',
+            lastName: 'Smith',
+            birthYear: 1992,
+            family: ['Jane', 'Mark', 'Bob', 'Emily'],
+            job: 'teacher',
+            isMarried: false,
+            calcAge: function() {
+                this.age = 2020 - this.birthYear;
+                this.age = 2020 - john.birthYear;
+            }
+        };
+
+        john.calcAge();
+        console.log(john);
+        */
+
+        /*****************************
+        * Loops and iteration
+        */
+
+        /*
+        // for loop
+        for (var i = 1; i <= 20; i += 2) {
+            console.log(i);
+        }
+
+        // i = 0, 0 < 10 true, log i to console, i++
+        // i = 1, 1 < 10 true, log i to the console, i++
+        //...
+        // i = 9, 9 < 10 true, log i to the console, i++
+        // i = 10, 10 < 10 FALSE, exit the loop!
+
+
+        // var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
+        // for (var i = 0; i < john.length; i++) {
+        //     console.log(john[i]);
+        // }
+
+        // While loop
+        var i = 0;
+        while(i < john.length) {
+            console.log(john[i]);
+            i++;
+        }
+
+
+        // continue and break statements
+        var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
+
+        for (var i = 0; i < john.length; i++) {
+            if (typeof john[i] !== 'string') continue;
+            console.log(john[i]);
+        }
+
+        for (var i = 0; i < john.length; i++) {
+            if (typeof john[i] !== 'string') break;
+            console.log(john[i]);
+        }
+
+        // Looping backwards
+        for (var i = john.length - 1; i >= 0; i--) {
+            console.log(john[i]);
+        }
+        */
+        var john = ['John', 'Smith', 1990, 'designer', false, 'blue'];
+        for (var i = 0; i < john.length; i++) {
+            console.log(john[i]);
+        }
+
+        /*****************************
+        * Function scope
+        */
+        // exampleFunction();
+
+        // function exampleFunction() {
+        //     var x = "declared inside function";  // x can only be used in exampleFunction
+        //     console.log("Inside function");
+        //     console.log(x);
+        // }
+
+        // console.log(x);  // Causes error - we call it that x is not in current scope
+
+        // var x = "declared outside function";
+
+        // exampleFunction();
+
+        // function exampleFunction() {
+        //     // x = "mutated inside the function";
+        //     console.log("Inside function");
+        //     console.log(x);
+        // }
+
+        // var x = "global scope";
+        var obj = {
+            method: function () {
+                var x = "local scope";
+                console.log(x);
+            },
+            methodTwo: function () {
+                var y = "local scope";
+                console.log(y);
+                console.log(this.x);
+            }
+        }
+        obj.method();
+        obj.methodTwo();
+        // console.log(x);
+
+        // console.log("Outside function");
+        // console.log(x);
+    </script>
+</body>
+
+</html>
