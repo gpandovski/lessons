@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom Manipulation</title>
+    <style>
+        /* p:nth-child() start with 1 */
+        .red-background {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- <input type="text"> <button type="button" id="add-elements">Add elements</button> -->
+    </div>
+
+    <script>
+        // BEFORE YOU CREATE AN HTML ELEMENT IN CSS THINK ABOUT WHERE YOU WILL PUT IT
+
+        // var ourButton = document.querySelector('button'); // document.getElementById("add-elements")
+
+        // ourButton.addEventListener("click", buttonManager);
+
+        // function buttonManager() {
+        //     console.log("we clicked a button");
+        // }
+
+
+        // we get our container where we attach our dynamic elements
+        var container = document.querySelector(".container");
+
+        // create input
+        var inputElement = document.createElement('input');
+        inputElement.setAttribute('type', "text");
+        // create button
+        var myButton = document.createElement('button');
+        myButton.setAttribute('type', "button");
+        myButton.textContent = "Remove input";
+
+        // add created elements to our holder container
+        // container.appendChild(inputElement);
+        container.appendChild([inputElement, myButton]);
+        myButton.addEventListener("click", removeInput);
+
+        function removeInput() {
+            container.removeChild(inputElement);
+        }
+
+
+
+
+
+
+        // var para2 = document.createElement('p');
+
+        // para2.textContent = "Dynamically created paragrapgh ! YO! With Red background ";
+
+        // // direct put inline CSS ( we dont like this!)
+        // // para2.style.background = "red";
+        // para2.className = "red-background";
+
+        // div.appendChild(para2);
+
+
+
+        // console.log(myButton);
+
+        // console.log(para);
+
+        // var firstPara = document.querySelector("p");
+        // firstPara.className = "red-background";
+        // console.log(firstPara);
+
+
+        // 1) get element when we want to attach dynamic HTML
+
+        // var div = document.querySelector("div");
+
+        // div.innerHTML = "<p>My new paragraph</p>";
+
+        // 2. Dynamically create Button HTML element
+
+        // var myButton = document.createElement('button');
+        // myButton.textContent = "Create me element";
+        // myButton.setAttribute('type', 'button');
+
+
+        // div.appendChild(myButton);
+
+        // // 3. Attach event listener to button so on click we can run function createNewParagraph
+
+        // myButton.addEventListener("click", createNewParagraph);
+
+
+        // function createNewParagraph() {
+
+        //     var para = document.createElement('p');
+
+        //     para.textContent = "Dynamically created paragrapgh ! YO! ";
+
+        //     div.appendChild(para);
+        // }
+    </script>
+</body>
+
+</html>
