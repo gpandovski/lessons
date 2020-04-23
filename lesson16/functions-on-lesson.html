@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Static -->
+
+        <!-- <h2>Name: Harper Alexander, mass: 72, height: 1.9</h2>
+        <h2>Name: Pauline Vasquez, mass: 87, height: 1.81</h2>
+        <h2>Name: Raquel Farley, mass: 82, height: 1.99</h2>
+        <h2>Name: Wyatt May, mass: 86, height: 1.11</h2>
+        <h2>Name: Marisa Owen, mass: 78, height: 1.35</h2> -->
+
+    </div>
+
+    <script>
+
+        var harper = {
+            name: "Harper Alexander",
+            mass: 73,
+            height: 1.9
+        };
+
+        var pauline = {
+            name: "Pauline Vasquez",
+            mass: 88,
+            height: 1.81
+        };
+
+        var raquel = {
+            name: "Raquel Farley",
+            mass: 82,
+            height: 1.99
+        };
+        var wyatt = {
+            name: "Wyatt May",
+            mass: 86,
+            height: 1.11
+        };
+        var marisa = {
+            name: "Marisa Owen",
+            mass: 78,
+            height: 1.35
+        }
+        // AKO imame 50 persons? 
+
+        // console.log
+        //"Name: Harper Alexander, mass: 72, height: 1.9 "
+        // we need a function to print this data, paramter in function should be person
+
+        // FIRST APPROACH
+        // console.log("Name: " + harper.name + ", mass: " + harper.mass + ", height: " + harper.height);
+        // console.log("Name: " + pauline.name + ", mass: " + pauline.mass + ", height: " + pauline.height);
+        // console.log("Name: " + raquel.name + ", mass: " + raquel.mass + ", height: " + raquel.height);
+
+
+
+        var harperData = getUserDataText(harper); //  vo harperData e "Name: Harper Alexander, mass: 73, height: 1.9"
+        var paulineData = getUserDataText(pauline);
+        var raquelData = getUserDataText(raquel);
+        var wyattData = getUserDataText(wyatt);
+        var marisaData = getUserDataText(marisa);
+
+        console.log(harperData);
+        console.log(paulineData);
+        console.log(raquelData);
+        console.log(wyattData);
+        console.log(marisaData);
+
+
+
+        // Sekoj user da go isprintame ne samo vo konsola ama vo web-page
+        // 1) Create dynamic h2 element ( text e prazen )
+        // 2) Vo text h2 element treba da stavime nasiot text 
+        // 3) H2 dynamic element we should display on page
+
+
+        var container = document.querySelector(".container");
+
+        printOnWepage(harperData);
+        printOnWepage(paulineData);
+        printOnWepage(raquelData);
+        printOnWepage(wyattData);
+        printOnWepage(marisaData);
+
+        // Function
+        function printOnWepage(personData) {
+            var personRow = document.createElement('h2');
+            personRow.textContent = personData;
+            container.appendChild(personRow);
+        }
+
+        function getUserDataText(user) {
+            var userData = "Name: " + user.name + ", mass: " + user.mass + ", height: " + user.height;
+
+            return userData;
+            // return  "Name: " + user.name + ", mass: " + user.mass + ", height: " + user.height; // THE SAME AS ABOVE 
+        }
+    </script>
+</body>
+
+</html>
