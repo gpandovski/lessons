@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ternary</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid h-100 bg-light text-dark">
+        <div class="row justify-content-center align-items-center">
+            <h1>Save user form</h1>
+        </div>
+        <hr />
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+
+                <div class="form-group">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" class="form-control" name="firstname" id="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" class="form-control" name="lastname" id="lastname">
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-block btn-primary">Save</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var saveButton = document.querySelector("button");
+        var appUsers = [];
+
+        var firstname = document.querySelector("#firstname");
+        var lastname = document.querySelector("#lastname");
+
+        saveButton.addEventListener('click', saveUser);
+
+        function saveUser() {
+
+            var userFirstname, userLastname;
+
+
+
+            // false, "", null, undefined, 0 = false 
+
+            // 1) VARIANTA
+            // if ( firstname.value ) {
+            //     userFirstname = firstname.value;
+            // } else {
+            //     userFirstname = "Anonymus firstname";
+            // }
+
+            // 2) VARIANTA
+            // if (firstname.value !== "" ) {
+            //     userFirstname = firstname.value;
+            // } else {
+            //     userFirstname = "Anonymus firstname";
+            // }
+
+
+            // SAME AS ABOVE
+            //  userFirstname = CONDITION ? ifTrue : ifFalse;
+            userFirstname = firstname.value ? firstname.value : "Anonymus firstname";
+
+            // if (lastname.value ) {
+            //     userLastname = lastname.value;
+            // } else {
+            //     userLastname = "Anonymus lastname";
+            // }
+            // SAME AS ABOVE
+            userLastname = lastname.value ? lastname.value : "Anonymus lastname";
+
+            var user = {
+                userFirstname: userFirstname,
+                userLastname: userLastname
+            }
+
+            appUsers.push(user);
+
+            console.log(appUsers);
+
+        }
+    </script>
+</body>
+
+</html>
