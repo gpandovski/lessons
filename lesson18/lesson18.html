@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 18</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+    </style>
+    <!-- MOMENT.JS LIBRARY - Parse, validate, manipulate, and display dates and times in JavaScript -->
+    <!-- https://momentjs.com/ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+</head>
+
+<body>
+    <div class="container h-100 d-flex">
+        <div class="jumbotron my-auto w-100">
+            <h1 class="display-3">Lesson 18</h1>
+            <p class="lead">Dates, Callbacks and timers</p>
+            <p class="clock"></p>
+        </div>
+    </div>
+    <script>
+
+        // Timestamp - JavaScript, however, understands the date based on a timestamp derived from Unix time
+
+        var testDate = new Date();
+        console.log(testDate);
+        console.log(testDate.toLocaleDateString('en-US')); // 'en-US', en-GB, 'mk', 'nl'
+        // Initialize a new birthday instance
+        const birthday = new Date(1985, 11, 3); //new Date(1980, 6, 31);  0 = January , 	1 = 1st of the month
+        console.log(birthday.toDateString());
+        console.log(birthday.getDay()); // 0-6 0 = Sunday Day (of the week)
+        console.log(birthday.getDate()); // Day (of the month)
+
+        console.log(birthday.getHours()); // 0-23 0 = midnight
+        console.log(birthday.getMonth()); //0-11 , 0 = January
+
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        const d = new Date();
+        console.log("The current month is " + monthNames[d.getMonth()]);
+
+        birthday.getFullYear();      // 1980
+        birthday.getMonth();         // 0-11
+        birthday.getDate();          //  1-31
+        birthday.getDay();           // 0 -6
+        birthday.getHours();         // 0 - 23
+        birthday.getMinutes();       // 0 - 59
+        birthday.getSeconds();       // 0 - 59
+        birthday.getMilliseconds();  // 0 - 999
+        birthday.getTime();          // 333849600000 (for GMT)]
+
+        // Change year of birthday date
+        // birthday.setFullYear(1997);
+
+        // Get today's date
+        // const today = new Date();
+
+        // // Compare today with October 3rd
+        // if (today.getDate() === 3 && today.getMonth() === 9) {
+        //     console.log("It's October 3rd.");
+        // } else {
+        //     console.log("It's not October 3rd.");
+        // }
+
+        // birthday.setFullYear()
+
+        // DATES in Javascript
+        // var now = new Date();
+        // console.log(now);
+        // console.log(now.getTime()); // prints timestamp
+        // console.log(now.toDateString()); // 
+
+        // var today = new Date();
+        // today.toLocaleFormat('%d-%b-%Y'); // 30-Dec-2011
+
+        // const epochTime = new Date(0);
+
+        // console.log(epochTime);
+
+        // Date string method
+        // new Date("January 31 1980 12:30"); //new Date(date string)
+
+        // Date and time method
+        // new Date(1776, 6, 4, 12, 30, 0, 0); //new Date(year, month, day, hours, minutes, seconds, milliseconds)
+
+
+
+
+
+        // Get today's date
+        // const today = new Date();
+
+        // // Compare today with October 3rd
+        // if (today.getDate() === 3 && today.getMonth() === 9) {
+        //     console.log("It's October 3rd.");
+        // } else {
+        //     console.log("It's not October 3rd.");
+        // }
+
+        // Subtract days, months, years from a date in JavaScript
+
+        // var date = new Date();
+        // date.setDate(date.getDate() - 6);
+        // date.setFullYear(date.getFullYear() - 1);
+
+
+        // console.log(moment().format('MMMM Do YYYY, h:mm:ss a')); // April 28th 2020, 5:46:33 pm
+        // moment().format('dddd');                    // Tuesday
+        // moment().format("MMM Do YY");               // Apr 28th 20
+        // moment().format('YYYY [escaped] YYYY');     // 2020 escaped 2020
+        // moment().format();
+
+        // const today = moment();
+        // console.log(
+        //     "Today's date is: " +
+        //     today.format('YYYY-MM-DD')
+        // );
+        // console.log(moment("2020-01-01", "YYYY-MM-DD").isValid()); // true
+        // console.log(moment("not-a-date", "YYYY-MM-DD").isValid()); // false
+
+        // moment().add(7, 'days');    // adds 7 days to current date
+        // moment().add(7, 'months');  // adds 7 months to current date
+        // moment().add(7, 'years');   // adds 7 years to current date
+
+        // moment().subtract(7, 'days');   // subtracts 7 days to current date
+        // moment().subtract(7, 'months'); // subtracts 7 months to current date
+        // moment().subtract(7, 'years');  // subtracts 7 years to current date
+
+        // const todayMom = moment();
+        // const nextWeek = todayMom.add(7, 'days');
+        // console.log(nextWeek.format('dddd Do MMMM, YYYY'));
+        // moment('2020.01.01', 'YYYY.MM.DD').fromNow();
+        // 9 days ago
+        // Thursday 16th January, 2020
+
+        // Funciton and function callbacks ( Sync)
+
+        // function printJohnName() {
+        //     var name = "John Smith";
+        //     console.log(name)
+        // }
+
+        // function printBobName() {
+        //     var name = "Bob Doe";
+        //     console.log(name)
+        // }
+        // // printMyName();
+
+        // function callbackHandler() {
+        //     printJohnName();
+
+        // }
+
+        // 1)
+        // callbackHandler();
+        // // 2)
+        // printBobName();
+
+
+        // function callbackHandler() {
+        //     printJohnName();
+        //     printBobName();
+        // }
+
+
+        // callbackHandler();
+
+        // function callbackHandler(callback) {
+        //     console.log("This function does some work");
+
+        //     callback();
+        //     console.log("This is very good person");
+        //     // if (typeof callback === "function") {
+        //     //     callback();
+        //     // }
+        // }
+
+        // SYN EXAMPLE 
+
+        // function calculateBMI(person) {
+        //     var bmi = person.mass / (person.height * person.height);
+        //     console.log(bmi);
+        // }
+
+
+        // SYNC function callback variant EXAMPLE 2
+
+        // callbackHandler(printBobName);
+        // function greeting(name) {
+        //     alert('Hello ' + name);
+        // }
+        // function greeting(name) {
+        //     var myPara = document.createElement('p');
+        //     myPara.textContent = name;
+        //     document.body.appendChild(myPara);
+
+        //     alert('Hello ' + name);
+        // }
+
+        // function processUserInput(callback) {
+        //     // var name = prompt('Please enter your name.');
+        //     callback(name);
+        // }
+
+        // processUserInput(greeting);
+
+        // ************************************************
+        // Students callback
+        // var students = [
+        //     { name: "Mary", score: 90, school: "East" },
+        //     { name: "James", score: 100, school: "East" },
+        //     { name: "Stave", score: 30, school: "East" },
+        //     { name: "Rachel", score: 70, school: "West" },
+        //     { name: "Rochelle", score: 95, school: "East" },
+        //     { name: "Lynette", score: 40, school: "West" },
+        //     { name: "Bob", score: 85, school: "East" },
+        // ];
+
+        // var processStudents = function (data, callback) {
+        //     for (let i = 0; i < data.length; i++) {
+        //         if (data[i].school.toLowerCase() === "east") {
+        //             if (typeof callback === "function") {
+        //                 callback(data[i]);
+        //             }
+        //         }
+        //     }
+        // }
+
+        // processStudents(students, function (obj) {
+        //     if (obj.score > 60) {
+        //         console.log(obj.name + " passed.");
+        //     }
+        // });
+
+        // SYNC - means one after other in row
+
+        // * * * * * * * * * * * * * * * * * * * * * * * * * ** * * * * * * * * * * * ** * * * * * * * * * * * ** * * * * * * * * * * * ** * * * * * * * * * * * *
+        // ASYNC callbacks
+
+        //setTimeout()
+
+        // let myGreeting = setTimeout(function () {
+        //     alert('Hello, Mr. Universe!');
+        // }, 2000);
+
+        // let myGreeting = setTimeout(function sayHi() {
+        //     alert('Hello, Mr. Universe!');
+        // }, 2000)
+
+        // With a function defined separately
+        // function sayHi() {
+        //     alert('Hello Mr. Universe!');
+        // }
+
+        // let myGreeting = setTimeout(sayHi, 2000);
+
+
+        //Passing parameters to a setTimeout() function
+        // function sayHi(who) {
+        //     alert(`Hello ${who}!`);
+        // }
+        // let myGreeting = setTimeout(sayHi, 2000, 'Mr. Universe');
+        // //Clearing timeouts
+        // clearTimeout(myGreeting);
+
+
+        // SET INTERVAL WITH 
+        //setInterval()
+
+        // function displayTime() {
+        //     let date = new Date();
+        //     let time = date.toLocaleTimeString();
+        //     document.querySelector('.clock').textContent = time;
+        // }
+
+        // displayTime();
+        // const createClock = setInterval(displayTime, 1000);
+    </script>
+</body>
+
+</html>
