@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson19</title>
+</head>
+
+<body>
+    <script>
+        // Loops 2.0
+        var myArr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+        // var i = 0;
+        // console.log(myArr[i]);
+        // i = 1;
+        // console.log(myArr[i]);
+        // i = 2;
+        // console.log(myArr[i]);
+        // i = 9;
+        // console.log(myArr[i]);
+
+        // var myArr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+        // var i = 0;
+        // console.log(myArr[i]); // resultat: 10
+        // i++; // with --
+        // console.log(myArr[i]); // resultat: 20
+        // i++; // with -- 
+        // console.log(myArr[i]); // resultat: 30
+
+        // function arrayCalc(arr) {
+        //     for (let i = 0; i < arr.length; i++) {
+        //         arr[i]++
+        //     }
+        // }
+
+        // by value
+        // var x = 10;
+        // var str = "string";
+        // function strCalc(str) {
+        //     str = str + " is value";
+        //     return str;
+        // }
+        // function intCalc(x) {
+        //     x = x + 1;
+        //     return x;
+        // }
+
+        // arrayCalc(myArr);
+        // console.log(myArr);
+
+        // console.log(intCalc(x));
+        // console.log(x);
+        // console.log(strCalc(str));
+        // console.log(str);
+
+        // var otherString = ["one", "two", "three"];
+
+
+        // otherString.forEach(function (element, index) {
+        //     console.log(element, index);
+        // });
+
+        // otherString.forEach( (element, index) => {
+        //     console.log(element, index);
+        // });
+
+
+        // ARROW FUNCTIONS
+
+        // two ways of anonymous function definition 
+        // var myFunction = function () {
+        //     console.log("My common function");
+        // }
+
+        // var myArrowFunction = () => {
+        //     console.log("My arrow function");
+        // }
+
+        // function callbackHandler(callback) {
+        //     return callback(2, 2);
+        // }
+
+        // myFunction();
+        // myArrowFunction();
+
+        // var result = callbackHandler(function (x, y) {
+        //     return x * y;
+        // });
+
+        // console.log(result);
+
+        // console.log(callbackHandler((x, y) => {
+        //     return x * y;
+        // }));
+
+        // console.log(callbackHandler( x => {
+        //     return x * x;
+        // }));
+
+        // 
+        // var myArr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+        // function getMiddleValue(arr) {
+
+        //     for (let i = 0; i < arr.length; i++) {
+        //         console.log(arr[i]);
+        //         if (arr[i] === 50) {
+        //             return arr[i];
+        //         }
+        //     }
+        // }
+
+        // function getMiddleValueForeach(arr) {
+        //     arr.forEach(function (value, key) {
+        //         console.log(value);
+        //         if (value === 50) {
+        //             return value;
+        //         }
+        //     });
+        // }
+
+        // // getMiddleValue(myArr);
+        // console.log(getMiddleValue(myArr));
+
+        // var delia = {
+        //     name: "Delia Crawford",
+        //     birthday: 1985,
+        //     city: "Skopje",
+        //     salaryBrutto: 30000
+        // };
+        // for (var key in delia) {
+        //     console.log(key);
+        // }
+        // console.log(delia['name']);
+        // console.log(delia['birthday']);
+
+
+        // for (var key in delia) {
+        //     console.log(delia[key]);
+        // }
+        // var myJson = {
+        //     "name": "Molecule Man",
+        //     "age": 29,
+        //     "secretIdentity": "Dan Jukes",
+        //     "powers": [
+        //         "Radiation resistance",
+        //         "Turning tiny",
+        //         "Radiation blast"
+        //     ]
+        // };
+        // console.log(typeof myJson);
+
+        // console.log(myJson.name);
+
+
+        // var jsonString = JSON.stringify(myJson);
+        // console.log(typeof jsonString);
+
+        // console.log(jsonString);
+        // console.log(jsonString.name);
+        // var myJsonObjectBack = JSON.parse(jsonString);
+        // console.log(myJsonObjectBack.name);
+        var url = 'https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json';
+
+        // =======================================================
+        // FETCH API (users Promise)
+
+        var url = "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+        var jsonPlaceholderWeb = "https://jsonplaceholder.typicode.com/";
+
+        // step 2
+        var container = document.querySelector('.container');
+        // FETCH API .then()
+
+        function getPlaceholderData(url, res) {
+
+            fetch(url + res).then(response => { // 
+                return response.json();
+            }).then(data => {
+                console.log(data.title);
+            });
+
+        }
+
+        getPlaceholderData(jsonPlaceholderWeb, 'posts/1');
+        // with fetch we send Request Object, with "then()" we receieve Response object
+        // then() itself if Promise
+        // fetch(url).then(response => { // 
+        //     return response.json();
+        // }).then(data => {
+
+        //     var h1 = document.createElement('h1');
+        //     h1.textContent = data.squadName;
+        //     var members = data.members;
+
+        //     container.appendChild(h1);
+
+        //     members.forEach(element => {
+        //         var heroPara = document.createElement('p');
+        //         heroPara.textContent = "Hero Name: " + element.name;
+        //         container.appendChild(heroPara);
+        //     });
+
+        //     for (let i = 0; i < members.length; i++) {
+        //         console.log(members[i].name);
+
+        //     }
+
+        //     console.log(data.squadName);
+
+
+        // });
+
+        //step 3
+
+
+
+    </script>
+</body>
+
+</html>
