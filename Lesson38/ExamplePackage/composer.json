@@ -1,0 +1,14 @@
+{
+    "name": "alex/composer",
+    "description": "My package",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "nesbot/carbon": "^2.35"
+    },
+    "autoload": {
+        "psr-4": {
+            "ProjectTest\\": "src"
+        }
+    }
+}
