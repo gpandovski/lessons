@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<books>
+  <book category="COOK">
+    <name lang="en">The Silver Spoon</name>
+    <by>Cielia D`Onofrio</by>
+    <released>1950</released>
+    <pricing>35.00</pricing>
+  </book>
+  <book category="FANTASY">
+    <name lang="en">The Fellowship of the Ring</name>
+    <by>J.R.R. Tolkien</by>
+    <released>1954</released>
+    <pricing>39.99</pricing>
+  </book>
+  <book category="TECH">
+    <name lang="en-us">Think like a programmer</name>
+    <by>V. Anton Spraul</by>
+    <released>2012</released>
+    <pricing>39.99</pricing>
+  </book>
+</books>
