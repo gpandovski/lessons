@@ -13,7 +13,7 @@ You might need to run ```composer dump-autoload``` (if changes in Seeders are no
 
 ### Authorization & Policies
 
-Commans to create policy
+Commands to create policy
 
 1. php artisan help make:policy 
 2. php artisan make:policy PostPolicy --model=Post
