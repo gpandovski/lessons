@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OOP - Classes and Objects</title>
+  </head>
+  <body>
+    <h1>Classes and Objects</h1>
+    <script>
+      //================================================================
+      // ES5  !!!
+      //================================================================
+
+      /*
+        Primitives
+
+        - Numbers
+        - Strings
+        - Booleans
+        - Undefined
+        - Null
+
+        Objects
+
+        - Arrays
+        - Functions
+        - Objects
+        - Dates
+        - Wrappers for Numbers, Strings, Booleans
+        // !!! everything is an object!!!
+
+        */
+      // Object literal
+      //   var john = {
+      //     name: "John",
+      //     yearOfBirth: 1990,
+      //     isMarried: false,
+      //     calculateAge: function () {
+      //       console.log(2020 - this.yearOfBirth);
+      //     },
+      //   };
+
+      //   console.log(john.name);
+      //   john.calculateAge();
+
+      // Javascript "Class"
+      // In Javascript we call classic OOP classes (like we have in PHP)  "constructors", "prototypes"
+      var Person = function (name, yearOfBirth, job) {
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+        // this.calculateAge = function () {
+        //   console.log(2020 - this.yearOfBirth);
+        // };
+      };
+
+      Person.prototype.lastName = "Smith";
+
+      Person.prototype.calculateAge = function () {
+        console.log(2020 - this.yearOfBirth);
+      };
+
+      var john = new Person("John", 1990, "teacher");
+      var jane = new Person("Jane", 1960, "scientist");
+      var mark = new Person("Mark", 1948, "retired");
+
+      console.log(john.name + " " + john.lastName);
+      console.log(jane.name + " " + jane.lastName);
+      console.log(mark.name);
+
+      //   console.log(john.yearOfBirth);
+      //   john.calculateAge();
+
+      // john.__proto__ === Person.prototype
+
+      //================================================================
+      //    ES6
+      //================================================================
+
+      class PersonNew {
+        constructor(name, yearOfBirth, job) {
+          this.name = name;
+          this.yearOfBirth = yearOfBirth;
+          this.job = job;
+        }
+        calculateAge() {
+          var age = 2020 - this.yearOfBirth;
+          console.log(age);
+        }
+      }
+      const john2 = new PersonNew("John 2", 1990, "teacher");
+      console.log(john2.name);
+
+      class Athlete extends PersonNew {
+        constructor(name, yearOfBirth, job, olympicGames, medals) {
+          super(name, yearOfBirth, job); // super is parent class (PersonNew)
+          this.olympicGames = olympicGames; // current class (Athlete)
+          this.medals = medals; // current class (Athlete)
+        }
+        wonMedal() {
+          this.medals++;
+          console.log(this.medals);
+        }
+      }
+
+      const johnTheAthlete = new Athlete(
+        "John Athlete",
+        1990,
+        "swimmer",
+        3,
+        10
+      );
+
+      console.log(johnTheAthlete.name);
+      johnTheAthlete.calculateAge();
+      johnTheAthlete.wonMedal();
+    </script>
+  </body>
+</html>

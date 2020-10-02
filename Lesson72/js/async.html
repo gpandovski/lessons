@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Async javascript</title>
+  </head>
+  <body>
+    <h1>Async javascript</h1>
+    <script>
+      //   const second = () => {
+      //     setTimeout(() => {
+      //       console.log("Async Hey there"); // with and without setTimeout
+      //     }, 2000);
+      //   };
+
+      //   const first = () => {
+      //     console.log("Hey there");
+      //     second();
+      //     console.log("The end");
+      //   };
+
+      //   first();
+
+      /// ATTENTION BAD CODE!! CALLBACK HELL!!!
+      //   function getRecipe() {
+      //     // api call
+      //     // server call 1
+      //     setTimeout(() => {
+      //       recipeIDs = [523, 883, 432, 974]; // some list of recipes ids from some outside API
+      //       console.log(recipeIDs);
+      //       //server call 2
+      //       setTimeout(
+      //         (id) => {
+      //           const recipe = {
+      //             title: "Fresh tomato pasta",
+      //             publisher: "Jonas",
+      //           };
+      //           console.log(`${id}: ${recipe.title}`);
+      //           //   console.log(id + ":" + recipe.title);
+
+      //           // SERVER CALL 3
+      //           setTimeout(
+      //             (publisher) => {
+      //               const recipe2 = {
+      //                 title: "Italian Pizza",
+      //                 publisher: "Jonas",
+      //               };
+      //               console.log(recipe);
+      //             },
+      //             1500,
+      //             recipe.publisher
+      //           );
+      //           // end of server call 3
+      //         },
+      //         2000,
+      //         recipeIDs[0]
+      //       );
+      //       // end of server call 2
+      //     }, 2000);
+      //     // end of server call 3
+      //   }
+      //   getRecipe();
+
+      // CALLBACK HELL END
+
+      // =================================
+      // Promises
+      // =================================
+
+      // Server 1 api call to get ids of recipes
+      // Produce promise
+      const getIDs = new Promise((resolve, reject) => {
+        // api call
+        setTimeout(() => {
+          resolve([523, 883, 432, 974]);
+        }, 1500);
+      });
+
+      // Server 2 api call
+      const getRecipe = (reciptID) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(
+            (ID) => {
+              const recipe = {
+                title: "Fresh tomato pasta",
+                publisher: "Jonas",
+              };
+              resolve(`${ID}: ${recipe.title}`);
+            },
+            1500,
+            reciptID
+          );
+        });
+      };
+      // SERVER CALL 3
+      const getRelated = (publisher) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(
+            (pub) => {
+              const recipe = { title: "Italian Pizza", publisher: "Jonas" };
+              resolve(`${pub}: ${recipe.title}`);
+            },
+            1500,
+            publisher
+          );
+        });
+      };
+      //   Consume promise
+      //     getIDs
+      //       .then((IDs) => {
+      //         console.log(IDs);
+      //         return getRecipe(IDs[1]);
+      //       })
+      //       .then((recipe) => {
+      //         console.log(recipe);
+      //         return getRelated("Jonas Schmedtmann");
+      //       })
+      //       .then((recipe) => {
+      //         console.log(recipe);
+      //       })
+      //       .catch((error) => {
+      //         console.log("We get some error from promise: " + error);
+      //       });
+
+      //================================================
+      // ASYNC /AWAIT
+      // =================================
+
+      // async function runs in background
+      // inside async function you can use special "await" keyword
+      //
+      async function getRecipesAW() {
+        // await
+        try {
+          const IDs = await getIDs; // await when get reject drops/generate Exception
+          const recipe = await getRecipe(IDs[2]);
+          const related = await getRelated("Jonas Shmidt");
+        } catch (ex) {
+          // catch erros from promise here
+          console.log(ex);
+        }
+
+        return "The final recipe is: " + recipe;
+      }
+
+      // handling return from async functions must be in .then()
+      getRecipesAW().then((recipe) => {
+        console.log(recipe);
+      });
+    </script>
+  </body>
+</html>

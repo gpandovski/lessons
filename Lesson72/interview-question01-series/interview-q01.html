@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interview question 01</title>
+  </head>
+  <body>
+    <script>
+      // QUESTION what alert will show (what text) when you click on Button 5
+      function createButtons() {
+        // Solution 1:
+        //   for (let i = 1; i <= 5; i++) {
+        for (var i = 1; i <= 5; i++) {
+          var body = document.getElementsByTagName("body")[0];
+          var button = document.createElement("button");
+          button.innerHTML = "Button " + i;
+          // Comment this block for Solution 2
+          button.onclick = function () {
+            alert("This is button " + i);
+          };
+
+          // Solution 2
+          // assignAlert(i, button);
+          body.appendChild(button);
+        }
+      }
+      // Solution 2
+      function assignAlert(num, button) {
+        button.onclick = function () {
+          alert("This is button " + num);
+        };
+      }
+
+      createButtons();
+    </script>
+  </body>
+</html>
